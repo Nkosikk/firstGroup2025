@@ -24,6 +24,16 @@ public class Chrome {
         driver.findElement(By.xpath("//input[@id='login-button']")).click();
 
         driver.findElement(By.xpath("//span[contains(.,'Products')]")).isDisplayed();
+        driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-bike-light']")).click();
+        driver.findElement(By.xpath("//a[contains(@class,'shopping_cart_link')]")).click();
+        driver.findElement(By.xpath("//button[contains(@id,'checkout')]")).click();
+        driver.findElement(By.id("first-name")).sendKeys("Kelebogile");
+        driver.findElement(By.id("last-name")).sendKeys("Ngobeni");
+       driver.findElement(By.id("postal-code")).sendKeys("1800");
+       driver.findElement(By.id("continue")).click();
+
+
+
 
 //        String productText = driver.findElement(By.xpath("//span[contains(.,'Products')]")).getText();
 //
@@ -33,9 +43,9 @@ public class Chrome {
 
     }
 
-    @AfterTest
-    public void closeBrowser() {
-        driver.quit();
-    }
+  //  @AfterTest
+   // public void closeBrowser() {
+   //     driver.quit();
+   // }
 
 }
