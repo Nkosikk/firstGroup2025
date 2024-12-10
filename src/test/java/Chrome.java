@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class Chrome {
     WebDriver driver;
-
+done
     @Test
     public void loginToSauceDemoWithBrowser() {
         driver = new ChromeDriver();
@@ -33,9 +33,9 @@ public class Chrome {
 
     }
 
-    @AfterTest
+  /*  @AfterTest
     public void closeBrowser() {
         driver.quit();
     }
-
+*/
 }
