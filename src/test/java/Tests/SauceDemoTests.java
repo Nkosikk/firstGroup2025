@@ -23,6 +23,8 @@ public class SauceDemoTests extends Base{
         homePage.verifyProductTextIsDisplayedIHomePage();
     }
 
+
+
     @AfterTest
     public void closeBrowser(){
         driver.quit();
