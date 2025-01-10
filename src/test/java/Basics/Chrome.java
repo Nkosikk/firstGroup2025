@@ -16,7 +16,7 @@ public class Chrome {
     public void loginToSauceDemoWithBrowser() {
         driver = new ChromeDriver();
 //        driver = new FirefoxDriver();
-//        driver = new EdgeDriver();
+//       driver = new EdgeDriver();
 //        driver = new SafariDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
@@ -34,9 +34,9 @@ public class Chrome {
 
     }
 
-    @AfterTest
-    public void closeBrowser() {
-        driver.quit();
-    }
+  //  @AfterTest
+//    public void closeBrowser() {
+//    //    driver.quit();
+//    }
 
 }

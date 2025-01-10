@@ -15,8 +15,22 @@ public class HomePage {
     @FindBy(xpath = "//span[contains(.,'Products')]")
     WebElement productTitle_xpath;
 
+    @FindBy(id = "add-to-cart-sauce-labs-backpack")
+    WebElement addToCartButton_id;
+
+    @FindBy(xpath ="//a[@data-test='shopping-cart-link']")
+    WebElement checkOut_link;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public void AddItemsToCart(){
+        addToCartButton_id.click();
+    }
+
+    public void CheckItemOutOfCart(){
+        checkOut_link.click();
     }
 
 

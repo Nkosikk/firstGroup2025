@@ -15,7 +15,7 @@ public class SauceDemoTests extends Base{
         loginPage.verifyMessagedIsDIsplayedWhenLoginISIncorrect();
     }
 
-
+    @Test(dependsOnMethods = "loginWithInvalidDetailsAndVerifyErrorMessageReturned")
     public void loginWithValidDetailAndVerifyHomePageIsDisplayed(){
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
@@ -23,11 +23,18 @@ public class SauceDemoTests extends Base{
         homePage.verifyProductTextIsDisplayedIHomePage();
     }
 
-
-
-    @AfterTest
-    public void closeBrowser(){
-        driver.quit();
+    @Test(dependsOnMethods = "loginWithValidDetailAndVerifyHomePageIsDisplayed")
+    public void AddItemsToCat(){
+        homePage.AddItemsToCart();
+        homePage.CheckItemOutOfCart();
+        yourCartPage.verifyYourCartTextIsDisplayedOnCartPage();
     }
+
+
+
+//    @AfterTest
+//    public void closeBrowser(){
+//        driver.quit();
+//    }
 
 }
