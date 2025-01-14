@@ -1,5 +1,7 @@
 package Pages;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,6 +16,9 @@ public class HomePage {
 
     @FindBy(xpath = "//span[contains(.,'Products')]")
     WebElement productTitle_xpath;
+
+    @FindBy(xpath = "//span[contains(.,'1')]")
+    WebElement cartContainsCount_xpath;
 
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
     WebElement addToCartButton_id;
@@ -38,8 +43,13 @@ public class HomePage {
     public void verifyProductTextIsDisplayedIHomePage() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(productTitle_xpath));
         productTitle_xpath.isDisplayed();
-
     }
+
+    public void verifyItemIsAddedToCart(){
+        cartContainsCount_xpath.isDisplayed();
+    }
+
+
 
 
 }

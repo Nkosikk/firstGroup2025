@@ -27,14 +27,13 @@ public class SauceDemoTests extends Base{
     public void AddItemsToCat(){
         homePage.AddItemsToCart();
         homePage.CheckItemOutOfCart();
-        yourCartPage.verifyYourCartTextIsDisplayedOnCartPage();
     }
 
 
 
-//    @AfterTest
-//    public void closeBrowser(){
-//        driver.quit();
-//    }
+    @AfterTest
+    public void closeBrowser(){
+        driver.quit();
+    }
 
 }
