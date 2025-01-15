@@ -15,10 +15,16 @@ public class HomePage {
     @FindBy(xpath = "//span[contains(.,'Products')]")
     WebElement productTitle_xpath;
 
+    @FindBy(id ="add-to-cart-sauce-labs-backpack")
+    WebElement addToCartButton_id;
+
+    @FindBy(xpath = "//a[contains(@class,'shopping_cart_link')]")
+    WebElement ShoppingCartButton_id;
+
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
-
 
 
     public void verifyProductTextIsDisplayedIHomePage() {
@@ -27,5 +33,14 @@ public class HomePage {
 
     }
 
+    public void Click_Add_To_Cart_Button()
+    {
+        addToCartButton_id.click();
+    }
+//
+    public void Click_Shopping_Cart_Button()
+    {
+        ShoppingCartButton_id.click();
 
+    }
 }
