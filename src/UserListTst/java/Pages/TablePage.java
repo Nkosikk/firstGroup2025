@@ -2,29 +2,26 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LoginPage {
+public class TablePage {
 
     WebDriver driver;
 
     @FindBy(xpath = "//input[@name='user-name']")
     WebElement username_xpath;
 
-    @FindBy(xpath = "//input[@id='password']")
-    WebElement password_xpath;
+    WebElement table = driver.findElement(By.id("tableId"));// Replace
 
-    @FindBy(id = "login-button")
-    WebElement loginButton_id;
 
-    @FindBy(xpath = "//h3[contains(.,'Epic sadface: Username and password do not match any user in this service')]")
-    WebElement loginErrorMessage_xpath;
+    /html/body/table// 'tableId' with the actual table ID or locator
 
-    public LoginPage(WebDriver driver) {
+
+    public TablePage(WebDriver driver) {
         this.driver = driver;
     }
 
