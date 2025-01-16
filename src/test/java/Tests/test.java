@@ -7,7 +7,7 @@ public class test {
 
     @Test
     public void testing() {
-        double itemTotal = 29.99;
+        double itemTotal = 59.99;
         double tax = 2.40;
 
         double ItemTotalPlusTax = itemTotal + tax;
