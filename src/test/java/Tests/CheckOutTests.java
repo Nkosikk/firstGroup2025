@@ -4,7 +4,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class PurchaseItemTests extends Base {
+public class CheckOutTests extends Base {
 
     @Test
     public void enterUsernameTests() {
@@ -41,11 +41,45 @@ public class PurchaseItemTests extends Base {
         homePage.navigateToCart();
     }
 
+    @Test(dependsOnMethods = "navigateToCart")
+    public void verifyItemInCart(){
+        cartPage.verifyCart();
+    }
 
+    @Test(dependsOnMethods = "verifyItemInCart")
+    public void itemsInCart(){
+        cartPage.itemInCart();
+    }
+
+    @Test(dependsOnMethods = "itemsInCart")
+    public void clickCheckOut(){
+        cartPage.clickCheckOut();
+    }
+
+    @Test(dependsOnMethods = "clickCheckOut")
+    public void verifyCheckout(){
+        checkOut.verifyCheckoutpage();
+    }
+
+    @Test(dependsOnMethods = "verifyCheckout")
+    public void enterDetails(){
+        checkOut.enterDetails();
+    }
+
+    @Test(dependsOnMethods = "enterDetails")
+    public void continueCheckout(){
+        checkOut.clickContinue();
+    }
+
+    @Test(dependsOnMethods = "continueCheckout")
+    public void verifyTotal(){
+        checkOut.verifyTotalItem();
+    }
 
     @AfterTest
     public void closeBrowser(){
-        driver.quit();
+        //driver.quit();
     }
+
 
 }

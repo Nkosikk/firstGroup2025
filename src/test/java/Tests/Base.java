@@ -1,5 +1,7 @@
 package Tests;
 
+import Pages.CartPage;
+import Pages.CheckOutPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Utils.BrowserFactory;
@@ -12,4 +14,7 @@ public class Base {
     final WebDriver driver = browserFactory.startBrowser("chrome","https://www.saucedemo.com/");
     LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
+    CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
+    CheckOutPage checkOut = PageFactory.initElements(driver, CheckOutPage.class);
+
 }

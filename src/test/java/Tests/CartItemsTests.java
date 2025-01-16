@@ -3,8 +3,10 @@ package Tests;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 @Test
-public class PurchaseItemTests extends Base {
+public class CartItemsTests extends Base{
 
     @Test
     public void enterUsernameTests() {
@@ -41,11 +43,23 @@ public class PurchaseItemTests extends Base {
         homePage.navigateToCart();
     }
 
+    @Test(dependsOnMethods = "navigateToCart")
+    public void verifyItemInCart(){
+        cartPage.verifyCart();
+    }
 
+    @Test(dependsOnMethods = "verifyItemInCart")
+    public void itemsInCart(){
+        cartPage.itemInCart();
+    }
+
+    @Test(dependsOnMethods = "itemsInCart")
+    public void clickCheckOut(){
+        cartPage.clickCheckOut();
+    }
 
     @AfterTest
     public void closeBrowser(){
         driver.quit();
     }
-
 }
