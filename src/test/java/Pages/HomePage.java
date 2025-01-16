@@ -15,17 +15,34 @@ public class HomePage {
     @FindBy(xpath = "//span[contains(.,'Products')]")
     WebElement productTitle_xpath;
 
+    @FindBy (id = "add-to-cart-sauce-labs-backpack")
+    public WebElement addToCart_id;
+
+    @FindBy(xpath = "//button[@id='remove-sauce-labs-backpack']")
+    WebElement RevomeButton_xpath;
+
+    @FindBy(xpath = "//a[@class='shopping_cart_link']")
+    WebElement cartlink_xpath;
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
-
-
 
     public void verifyProductTextIsDisplayedIHomePage() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(productTitle_xpath));
         productTitle_xpath.isDisplayed();
 
     }
+    public void clickaddToCart() {
+        addToCart_id.click();
+        }
+    public void verifyRemovebutton() {
+        RevomeButton_xpath.isDisplayed();
 
+    }
+
+    public void clickcartlink() {
+        cartlink_xpath.click();
+    }
 
 }

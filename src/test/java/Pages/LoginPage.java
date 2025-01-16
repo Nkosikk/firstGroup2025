@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+//import org.openqa.selenium.TakesScreenshot;
 
 import java.time.Duration;
 
@@ -23,6 +24,7 @@ public class LoginPage {
 
     @FindBy(xpath = "//h3[contains(.,'Epic sadface: Username and password do not match any user in this service')]")
     WebElement loginErrorMessage_xpath;
+
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
