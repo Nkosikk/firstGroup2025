@@ -24,6 +24,10 @@ public class LoginPage {
     @FindBy(xpath = "//h3[contains(.,'Epic sadface: Username and password do not match any user in this service')]")
     WebElement loginErrorMessage_xpath;
 
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]")
+    WebElement LoginPageTitle_xpath;
+
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -50,6 +54,11 @@ public class LoginPage {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(loginErrorMessage_xpath));
 
         loginErrorMessage_xpath.isDisplayed();
+
+    }
+    public void verifyLoginpageTitleisDisplayed() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(LoginPageTitle_xpath));
+        LoginPageTitle_xpath.isDisplayed();
 
     }
 
