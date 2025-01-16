@@ -41,6 +41,15 @@ public class CheckOutPage {
     @FindBy(xpath = "//button[@id='cancel']")
     WebElement btnCancel;
 
+    @FindBy(xpath = "//h2[@class='complete-header'][contains(.,'Thank you for your order!')]")
+    WebElement txtThankYou;
+
+    @FindBy(xpath = "//button[@type='button'][contains(.,'Open Menu')]")
+    WebElement openMenu;
+
+    @FindBy(xpath = "//a[@id='logout_sidebar_link']")
+    WebElement lnkLogout;
+
     public CheckOutPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -62,25 +71,36 @@ public class CheckOutPage {
     public void verifyTotalItem(){
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(totalAmount));
 
-        String totalAmt = totalItem.getText().substring(13);
+        String subTotalAmtItem = totalItem.getText().substring(13);
         String subTax = taxAmount.getText().substring(6);
-        String totalPrice = totalAmount.getText().substring(8);
+        String subTotalPrice = totalAmount.getText().substring(8);
 
-        double totalAmount_item = Double.parseDouble(totalAmt);
-        double totalAmount_Price = Double.parseDouble(totalPrice);
+        double totalAmount_item = Double.parseDouble(subTotalAmtItem);
+        double totalAmount_Price = Double.parseDouble(subTotalPrice);
         double txAmount = Double.parseDouble( subTax );
         double total = 0.0;
 
-        double totalA = Double.parseDouble( totalAmount.getText() );
         total = totalAmount_item + txAmount;
 
-        if( total == totalA ){
+        if( total == totalAmount_Price ){
             btnFinish.click();
+
+            // verify confirmation dispatch
+            txtThankYou.isDisplayed();
+
         }else{
             btnCancel.click();
         }
 
-
     }
+
+    public void logout(){
+        openMenu.click();
+
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(lnkLogout));
+
+        lnkLogout.click();
+    }
+
 
 }

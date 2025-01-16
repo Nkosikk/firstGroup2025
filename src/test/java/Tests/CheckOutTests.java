@@ -76,6 +76,11 @@ public class CheckOutTests extends Base {
         checkOut.verifyTotalItem();
     }
 
+    @Test(dependsOnMethods = "verifyTotal")
+    public void logout(){
+        checkOut.logout();
+    }
+
     @AfterTest
     public void closeBrowser(){
         //driver.quit();
