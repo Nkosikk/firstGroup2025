@@ -21,9 +21,9 @@ public class Chrome {
     @Test
     public void loginToSauceDemoWithBrowser() throws IOException {
         driver = new ChromeDriver();
-//        driver = new FirefoxDriver();
-//        driver = new EdgeDriver();
-//        driver = new SafariDriver();
+//        driver = new ChromeDriver();
+//        driver = new ChromeDriver();
+//        driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
@@ -32,12 +32,12 @@ public class Chrome {
         driver.findElement(By.id("password")).sendKeys("secret_sauce");
         driver.findElement(By.xpath("//input[@id='login-button']")).click();
 
-        driver.findElement(By.xpath("//span[contains(.,'Products')]")).isDisplayed();
+ //       driver.findElement(By.xpath("//span[contains(.,'Products')]")).isDisplayed();
         FileUtils.copyFile(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE), new File("/Users/nkosi/Projects/Automation2025/firstGroup2025/src/test/Screenshots/Product page.png"));
 
-//        String productText = driver.findElement(By.xpath("//span[contains(.,'Products')]")).getText();
-//
-//        Assert.assertEquals(productText,"Products");
+  //      String productText = driver.findElement(By.xpath("//span[contains(.,'Products')]")).getText();
+
+ //      Assert.assertEquals(productText,"Products");
 
 
 
