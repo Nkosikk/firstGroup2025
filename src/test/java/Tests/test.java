@@ -18,7 +18,7 @@ public class test {
             System.out.println("Tests has passed");
             // click finish button
         } else {
-            System.out.println("Tests has Failed");
+            System.out.println("Tests has Failed 1");
             // click cancel button
         }
     }
