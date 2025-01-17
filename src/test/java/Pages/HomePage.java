@@ -19,7 +19,8 @@ public class HomePage {
     @FindBy(xpath = "//button[contains(@id,'add-to-cart-sauce-labs-backpack')]")
     WebElement backpackItem;
 
-    @FindBy(xpath = "(//div[contains(@class,'inventory_item_name ')])[1]")WebElement backpackItemInfo;
+    @FindBy(xpath = "(//div[contains(@class,'inventory_item_name ')])[1]")
+    WebElement backpackItemInfo;
 
     @FindBy(xpath = "//button[contains(@id,'add-to-cart-sauce-labs-bike-light')]")
     WebElement bikeLightItem;

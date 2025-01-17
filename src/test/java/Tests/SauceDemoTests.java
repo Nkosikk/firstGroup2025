@@ -32,7 +32,13 @@ public class SauceDemoTests extends Base{
         homePage.addItemToCart();
         homePage.verifyItemAddedToCart();
         takesScreenshots.takesSnapShot(driver,"ItemAddedToCart");
+    }
 
+    @Test(dependsOnMethods = "addItemsToCartAndVerifyItemIsAdded")
+    public void navigateToCartAndVerifyItemInTheCart(){
+        /*7.Navigate to the CART8.Verify that you can see your item in the CART.Take a screenshot*/
+        cartPage.NavigateToCart();
+        takesScreenshots.takesSnapShot(driver,"ItemIsInTheCart");
     }
     @AfterTest
     public void closeBrowser(){
