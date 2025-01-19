@@ -20,10 +20,12 @@ public class CartPage {
         this.driver = driver;
     }
 
-    public void NavigateToCart(){
+    public void navigateToCart(){
         cartLink.click();
     }
+    public void verifyItemInTheCart(){
 
+    }
     public void clickCheckoutButton(){
         checkoutButton.click();
     }

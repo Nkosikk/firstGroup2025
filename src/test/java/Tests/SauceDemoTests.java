@@ -37,7 +37,7 @@ public class SauceDemoTests extends Base{
     @Test(dependsOnMethods = "addItemsToCartAndVerifyItemIsAdded")
     public void navigateToCartAndVerifyItemInTheCart(){
         /*7.Navigate to the CART8.Verify that you can see your item in the CART.Take a screenshot*/
-        cartPage.NavigateToCart();
+        cartPage.navigateToCart();
         takesScreenshots.takesSnapShot(driver,"ItemIsInTheCart");
     }
     @AfterTest
