@@ -47,8 +47,18 @@ public class SauceDemoTests extends Base{
         /*10.Checkout your item11.Verify that you are in the capture information screen12.	Enter your details13.Take a screenshot*/
         cartPage.clickCheckoutButtonAndVerifyCaptureScreen();
         checkoutStepOnePage.enterDetails();
-        checkoutStepOnePage.verifyCheckoutPageTitle();
-        takesScreenshots.takesSnapShot(driver,"Check out");
+        checkoutStepTwoPage.verifyCheckoutPageTitle();
+        takesScreenshots.takesSnapShot(driver,"Check out Step One");
+    }
+
+    @Test(dependsOnMethods = "checkoutAndVerifyCaptureScreenAndEnterDetails")
+    public void verifyTotalsAndThatYouCanSeeYourItem(){
+        /*16.Verify that you can see your item17.	Take a screenshot.*/
+        checkoutStepTwoPage.verifySubTotalAmount();
+        checkoutStepTwoPage.verifyTaxForPurchase();
+        checkoutStepTwoPage.verifyTotalAmount();
+        checkoutStepTwoPage.verifyConfirmationOrderText();
+        takesScreenshots.takesSnapShot(driver,"Check out Step Two");
     }
 
     @AfterTest

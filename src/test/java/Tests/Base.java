@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.CartPage;
-import Pages.CheckoutStepOnePage;
-import Pages.HomePage;
-import Pages.LoginPage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.TakesScreenshots;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +15,7 @@ public class Base {
     TakesScreenshots takesScreenshots = new TakesScreenshots();
     CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
     CheckoutStepOnePage checkoutStepOnePage = PageFactory.initElements(driver, CheckoutStepOnePage.class);
+    CheckoutStepTwoPage checkoutStepTwoPage = PageFactory.initElements(driver, CheckoutStepTwoPage.class);
 
 
 }

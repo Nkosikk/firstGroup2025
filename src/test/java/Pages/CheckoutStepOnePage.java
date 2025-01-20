@@ -24,9 +24,6 @@ public class CheckoutStepOnePage {
     @FindBy(xpath = "//input[contains(@id,'continue')]")
     WebElement shippingContinueButton;
 
-    @FindBy(xpath = "//span[contains(.,'Checkout: Overview')]")
-    WebElement checkoutPageTitle;
-
 
     public CheckoutStepOnePage(WebDriver driver) {
         this.driver = driver;
@@ -41,11 +38,4 @@ public class CheckoutStepOnePage {
         shippingAddress_xpath.sendKeys(postalCode);
         shippingContinueButton.click();// Verify on checkout overview screen
     }
-
-    public void verifyCheckoutPageTitle(){
-        String checkoutTitle = checkoutPageTitle.getText();
-        System.out.println(checkoutTitle);
-        Assert.assertEquals(checkoutTitle,"Checkout: Overview");
-    }
-
 }
