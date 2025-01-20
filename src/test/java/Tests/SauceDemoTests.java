@@ -46,7 +46,8 @@ public class SauceDemoTests extends Base{
     public void checkoutAndVerifyCaptureScreenAndEnterDetails(){
         /*10.Checkout your item11.Verify that you are in the capture information screen12.	Enter your details13.Take a screenshot*/
         cartPage.clickCheckoutButtonAndVerifyCaptureScreen();
-        cartPage.verifyItemInTheCart();
+        checkoutStepOnePage.enterDetails();
+        checkoutStepOnePage.verifyCheckoutPageTitle();
         takesScreenshots.takesSnapShot(driver,"Check out");
     }
 
