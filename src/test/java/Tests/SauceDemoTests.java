@@ -38,8 +38,18 @@ public class SauceDemoTests extends Base{
     public void navigateToCartAndVerifyItemInTheCart(){
         /*7.Navigate to the CART8.Verify that you can see your item in the CART.Take a screenshot*/
         cartPage.navigateToCart();
+        cartPage.verifyItemInTheCart();
         takesScreenshots.takesSnapShot(driver,"ItemIsInTheCart");
     }
+
+    @Test(dependsOnMethods = "navigateToCartAndVerifyItemInTheCart")
+    public void checkoutAndVerifyCaptureScreenAndEnterDetails(){
+        /*10.Checkout your item11.Verify that you are in the capture information screen12.	Enter your details13.Take a screenshot*/
+        cartPage.clickCheckoutButtonAndVerifyCaptureScreen();
+        cartPage.verifyItemInTheCart();
+        takesScreenshots.takesSnapShot(driver,"Check out");
+    }
+
     @AfterTest
     public void closeBrowser(){
         driver.quit();
