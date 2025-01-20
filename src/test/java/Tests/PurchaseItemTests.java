@@ -26,12 +26,12 @@ public class PurchaseItemTests extends Base {
     public void verifyLoginSuccess() {
 
         homePage.verifyProductTextIsDisplayedIHomePage();
-        screenShot.TakeScreenShot("sceenshot.png");
+        screenShot.TakeScreenShot("ScreenShots\\sceenshot.png");
     }
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
     public void AddFistItemToCart(){homePage.AddItemsToCart();
-        screenShot.TakeScreenShot("sceenshot1.png");
+        screenShot.TakeScreenShot("ScreenShots\\sceenshot.png");
     }
 
     @Test(dependsOnMethods = "AddFistItemToCart")
@@ -42,14 +42,14 @@ public class PurchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "verifyItemAdded")
     public void verifyItemIsDisplayedInCartPage(){yourCartPage.verifyItemAddedToCartIsDisplayedOnCartPage();
-        screenShot.TakeScreenShot("sceenshot2.png");}
+        screenShot.TakeScreenShot("ScreenShots\\sceenshot.png");}
 
     @Test(dependsOnMethods = "verifyItemIsDisplayedInCartPage")
     public void clickCheckoutTest(){yourCartPage.clickCheckoutButton(); }
 
     @Test(dependsOnMethods = "clickCheckoutTest")
     public void verifyYourInfoPageIsDisplayed(){captureInfoPage.verifyYourInfoTitleIsDisplayedInCaptureInfoPage();
-        screenShot.TakeScreenShot("sceenshot3.png");}
+        screenShot.TakeScreenShot("ScreenShots\\sceenshot.png");}
 
     @Test(dependsOnMethods = "verifyYourInfoPageIsDisplayed")
     public void enterFirstnameTest(){captureInfoPage.enterFirstname("Sisho");}
@@ -59,7 +59,7 @@ public class PurchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "enterLastnameTest")
     public void enterPostalCodeTest(){captureInfoPage.enterPostalCode("3699");
-        screenShot.TakeScreenShot("sceenshot4.png");}
+        screenShot.TakeScreenShot("ScreenShots\\sceenshot.png");}
 
     @Test(dependsOnMethods = "enterPostalCodeTest")
     public void clickContinueTest(){captureInfoPage.clickContinueButton(); }
@@ -69,18 +69,18 @@ public class PurchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "verifyTitleIsDisplayedInInfoTest")
     public void verifyItemIsDisplayedInInfoTest(){checkoutOverviewPage.verifyItemIsDisplayedInCaptureInfoPage();
-        screenShot.TakeScreenShot("sceenshot5.png");}
+        screenShot.TakeScreenShot("ScreenShots\\sceenshot.png");}
 
     @Test(dependsOnMethods = "verifyItemIsDisplayedInInfoTest")
     public void verifyItemTotalPlusTaxEqualsTotalTest(){checkoutOverviewPage.verifyItemTotalPlusTaxEqualsTotal();}
 
     @Test(dependsOnMethods = "verifyItemTotalPlusTaxEqualsTotalTest")
     public void verifyOrderCompletedIsDisplayedTest(){checkoutCompletedPage.verifyThankYouPage();
-        screenShot.TakeScreenShot("sceenshot6.png");}
+        screenShot.TakeScreenShot("ScreenShots\\sceenshot.png");}
 
     @Test(dependsOnMethods = "verifyOrderCompletedIsDisplayedTest")
     public void clickBackHomeTest(){checkoutCompletedPage.clickBackHomeButton();
-        screenShot.TakeScreenShot("sceenshot7.png");}
+        screenShot.TakeScreenShot("ScreenShots\\sceenshot.png");}
 
 
     @AfterTest
