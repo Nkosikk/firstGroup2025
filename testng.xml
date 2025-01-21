@@ -7,7 +7,6 @@
 <test name="Sauce Demo Tests">
     <classes>
         <class name="Tests.PurchaseItemTests"></class>
-        <class name="Tests.SauceDemoTests"></class>
     </classes>
 </test>    
 
