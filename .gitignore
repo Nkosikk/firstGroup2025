@@ -20,7 +20,7 @@ Screenshots/
 .settings
 .springBeans
 .sts4-cache
-
+Reports/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -30,7 +30,7 @@ Screenshots/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-
+test-output/
 ### VS Code ###
 .vscode/
 
