@@ -1,7 +1,6 @@
 package Tests;
 
-import Pages.CheckoutOverviewPage;
-import Utils.ScreenShot;
+
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 

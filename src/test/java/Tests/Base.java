@@ -18,5 +18,5 @@ public class Base {
     CheckoutCompletedPage checkoutCompletedPage = PageFactory.initElements(driver, CheckoutCompletedPage.class);
     ScreenShot screenShot = PageFactory.initElements(driver, ScreenShot.class);
 
-    //ScreenShot screenShot = new ScreenShot();
+
 }
