@@ -16,6 +16,7 @@ public class Base {
     CartPage cartPage = PageFactory.initElements(driver, CartPage.class);
     CheckoutStepOnePage checkoutStepOnePage = PageFactory.initElements(driver, CheckoutStepOnePage.class);
     CheckoutStepTwoPage checkoutStepTwoPage = PageFactory.initElements(driver, CheckoutStepTwoPage.class);
+    LogoutPage logoutPage = PageFactory.initElements(driver, LogoutPage.class);
 
 
 }

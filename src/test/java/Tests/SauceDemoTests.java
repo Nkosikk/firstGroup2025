@@ -60,6 +60,13 @@ public class SauceDemoTests extends Base{
         checkoutStepTwoPage.verifyConfirmationOrderText();
         takesScreenshots.takesSnapShot(driver,"Check out Step Two");
     }
+    @Test(dependsOnMethods = "verifyTotalsAndThatYouCanSeeYourItem")
+    public void logout(){
+        /*Logout.	Take a screenshot.*/
+        logoutPage.clickBurgerMenu();
+        logoutPage.clickLogout();
+        takesScreenshots.takesSnapShot(driver,"Logged Out");
+    }
 
     @AfterTest
     public void closeBrowser(){
