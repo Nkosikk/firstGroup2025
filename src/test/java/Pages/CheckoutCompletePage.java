@@ -9,13 +9,13 @@ public class CheckoutCompletePage {
     WebDriver driver;
 
     @FindBy(xpath = "//h2[@class='complete-header'][contains(.,'Thank you for your order!')]")
-    WebElement ThankYou_xpath;
+    static WebElement ThankYouFor_xpath;
 
     @FindBy(xpath = "//button[@id='react-burger-menu-btn']")
-    WebElement burgermenu_xpath;
+    static WebElement burgermenu_xpath;
 
     @FindBy( id = "logout_sidebar_link")
-    WebElement Logout_id;
+    static WebElement Logout_id;
 
 
 
@@ -24,15 +24,15 @@ public class CheckoutCompletePage {
         this.driver = driver;
     }
 
-    public void verifyThankYouisdisplayedCheckcomplete() {
-        ThankYou_xpath.isDisplayed();
+    public static void verifyThankYouForisdisplayedCheckCompletePage() {
+        ThankYouFor_xpath.isDisplayed();
     }
 
-    public void clickburgermenu() {
+    public static void clickburgermenu() {
      burgermenu_xpath.click();
     }
 
-    public void clickLogout() {
+    public static void clickLogout() {
         Logout_id.click();
     }
 

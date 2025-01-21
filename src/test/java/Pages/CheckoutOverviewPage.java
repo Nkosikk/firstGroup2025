@@ -1,6 +1,5 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,16 +14,14 @@ public class CheckoutOverviewPage {
     @FindBy(xpath = "//div[contains(@class,'summary_subtotal_label')]")
     WebElement ItemPrice_xpath;
     @FindBy(xpath = "//div[@data-test='tax-label']")
-   WebElement TaxPrice_xpath;
+    WebElement TaxPrice_xpath;
     @FindBy(xpath = "//div[@data-test='total-label']")
     WebElement TotalPrice_xpath;
-    @FindBy (xpath = "//button[@id='cancel']")
+    @FindBy(xpath = "//button[@id='cancel']")
     WebElement CancelButton_xpath;
 
     @FindBy(id = "finish")
-     WebElement finish_id;
-
-
+    WebElement finish_id;
 
 
     public CheckoutOverviewPage(WebDriver driver) {
@@ -36,19 +33,23 @@ public class CheckoutOverviewPage {
     }
 
 
-    public boolean Totaliscalculatedcorrectly() {
+    public void Totaliscalculatedcorrectlyy() {
         String itemPriceStr = ItemPrice_xpath.getText().replaceAll("[^\\d.]", "");
         String taxStr = TaxPrice_xpath.getText().replaceAll("[^\\d.]", "");
         String totalStr = TotalPrice_xpath.getText().replaceAll("[^\\d.]", "");
-    Double ItemPrice = Double.parseDouble(itemPriceStr );
-    Double TaxPrice = Double.parseDouble(taxStr);
-    Double TotalPrice = Double.parseDouble(totalStr);
-    return ItemPrice + TaxPrice == TotalPrice;
-    }
+        Double ItemPrice = Double.parseDouble(itemPriceStr);
+        Double TaxPrice = Double.parseDouble(taxStr);
+        Double ItemPriceTaxPrice = ItemPrice + TaxPrice;
+        Double TotalPrice = Double.parseDouble(totalStr);
 
-    public void clickCancelButton() {CancelButton_xpath.click();}
+        if (ItemPriceTaxPrice == TotalPrice) {
+            System.out.println("Tests has passed");
+            finish_id.click();
+        } else {
+            System.out.println("Tests has Failed");
+            CancelButton_xpath.click();
+        }
 
-    public void clickfinishbutton() {
-        finish_id.click();
+
     }
 }

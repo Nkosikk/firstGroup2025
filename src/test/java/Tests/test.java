@@ -16,7 +16,7 @@ public class test {
 
         if (ItemTotalPlusTax == total) {
             System.out.println("Tests has passed");
-            // click finish button
+          //   click finish_id
         } else {
             System.out.println("Tests has Failed");
             // click cancel button
