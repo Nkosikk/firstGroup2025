@@ -7,8 +7,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+//to monitor the runs(executions)
 public class Listener implements ITestListener {
 
+    //Instances of extent reports
     private static ExtentReports extent;
     private static ExtentTest extentTest;
 
@@ -30,6 +32,7 @@ public class Listener implements ITestListener {
         extent.flush();
     }
 
+    //Connecting to the above class Extent Report Manager
     public void onStart(ITestContext result) {
         extent = ExtentReportManager.extentSetup();
     }

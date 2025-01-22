@@ -11,6 +11,7 @@ public class ExtentReportManager {
     //    private static String reportDir = System.getProperty("user.dir") + "/Reports";
     private static String reportDir = System.getProperty("user.dir") + "/Reports";
 
+    //instances
     private static ExtentReports extentReports;
     private static ExtentSparkReporter extentSparkReporter;
 
@@ -19,10 +20,12 @@ public class ExtentReportManager {
         extentSparkReporter = new ExtentSparkReporter(new File(reportDir));
         extentReports.attachReporter(extentSparkReporter);
 
+        //file layout(customising)
         extentSparkReporter.config().setDocumentTitle("Extent report");
         extentSparkReporter.config().setTheme(Theme.DARK);
         extentSparkReporter.config().setReportName("Sauce Demo");
 
+        //creating report
         extentReports.setSystemInfo("OS", System.getProperty("os.name"));
         extentReports.setSystemInfo("Execution Machine", System.getProperty("user.name"));
         return extentReports;
