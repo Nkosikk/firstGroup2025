@@ -21,13 +21,4 @@ public class ReadFromExcel {
 
     public String username = sheet.getRow(1).getCell(0).getStringCellValue();
     public String password = sheet.getRow(1).getCell(1).getStringCellValue();
-
-
-    @Test
-    public void test() {
-        System.out.println(username);
-        System.out.println(password);
-    }
-
-
 }

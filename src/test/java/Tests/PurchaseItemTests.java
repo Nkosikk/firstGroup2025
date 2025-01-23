@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 public class PurchaseItemTests extends Base {
 
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
     }
 
 
