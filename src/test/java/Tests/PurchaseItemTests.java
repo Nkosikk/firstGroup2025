@@ -11,12 +11,13 @@ import static Pages.HomePage.*;
 public class PurchaseItemTests extends Base {
 
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
+        takesScreenshots.takesSnapShot(driver,"Login Page");
     }
 
 
@@ -28,6 +29,7 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
         homePage.verifyProductTextIsDisplayedIHomePage();
+        takesScreenshots.takesSnapShot(driver,"Home Page");
     }
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
