@@ -30,7 +30,6 @@ public class CartPage {
     }
 
     public void verifyyourcartisdisplayedCartPage() {
-      //  new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.visibilityOf(yourcart_xpath));
         yourcart_xpath.isDisplayed();
     }
 

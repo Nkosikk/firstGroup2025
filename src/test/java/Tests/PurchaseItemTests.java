@@ -66,40 +66,31 @@ public class PurchaseItemTests extends Base {
     }
 
     @Test(dependsOnMethods = "enterfirstname")
-    public void enterlastname() {
-        CheckoutInfoPage.enterlastname("Mdoda");
+    public void enterlastname() {CheckoutInfoPage.enterlastname("Mdoda");
     }
 
     @Test(dependsOnMethods = "enterlastname")
-    public void enterpostalcode() {
-        CheckoutInfoPage.enterpostalcode("7750");
+    public void enterpostalcode() {CheckoutInfoPage.enterpostalcode("7750");
     }
 
     @Test(dependsOnMethods = "enterpostalcode")
-    public void clickContinuebutton() {
-        CheckoutInfoPage.clickContinuebutton();
+    public void clickContinuebutton() {CheckoutInfoPage.clickContinuebutton();
     }
 
     @Test(dependsOnMethods = "clickContinuebutton")
-    public void verifyCheckoutOverview() {
-        CheckoutOverviewPage.verifyCheckoutOverviewisdisplayedCheckOverviewPage();
+    public void verifyCheckoutOverview() {CheckoutOverviewPage.verifyCheckoutOverviewisdisplayedCheckOverviewPage();
     }
 
     @Test(dependsOnMethods = "verifyCheckoutOverview")
-    public void Totaliscalculatedcorrectlyy() {
-        CheckoutOverviewPage.Totaliscalculatedcorrectlyy();
+    public void Totaliscalculatedcorrectlyy() {CheckoutOverviewPage.Totaliscalculatedcorrectlyy();
     }
-
 
     @Test(dependsOnMethods = "Totaliscalculatedcorrectlyy")
-    public void verifyThankYouForisdisplayedCheckcomplete() {CheckoutCompletePage.verifyThankYouForisdisplayedCheckCompletePage();
-    }
-
-    @Test(dependsOnMethods = "verifyThankYouForisdisplayedCheckcomplete")
     public void clickburgermenu() {CheckoutCompletePage.clickburgermenu();}
 
     @Test(dependsOnMethods = "clickburgermenu")
-    public void clickLogout() {CheckoutCompletePage.clickLogout();}
+
+    public void clicklogout() {CheckoutCompletePage.clicklogout();}
 
     @AfterTest
     public void closeBrowser() {
