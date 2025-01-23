@@ -13,6 +13,7 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
         loginPage.enterPassword(readFromExcel.password);
+        takesScreenshots.takesSnapShot(driver,"Login Page");
     }
 
 
@@ -24,6 +25,7 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
         homePage.verifyProductTextIsDisplayedIHomePage();
+        takesScreenshots.takesSnapShot(driver,"Home Page");
     }
 
     @AfterTest
