@@ -78,7 +78,7 @@ public class PurchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "verifyOrderCompletedIsDisplayedTest")
     public void clickBackHomeTest(){checkoutCompletedPage.clickBackHomeButton();
-        takesScreenshots.takesSnapShot(driver,"screenshot");;}
+        takesScreenshots.takesSnapShot(driver,"screenshot");}
 
 
     @AfterTest
