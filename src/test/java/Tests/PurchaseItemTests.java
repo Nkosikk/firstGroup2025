@@ -106,9 +106,11 @@ public class PurchaseItemTests extends Base {
         checkoutCompletPage.verifyCheckoutCompleteTitleisDisplayed();
        takesScreenshots.takesSnapShot(driver,"Checkout Complete");
     }
+
     @Test(dependsOnMethods = "CheckoutCompleteTitleIsDisplayed")
     public void GoBackToHome() {
-        checkoutCompletPage.ClickBackToHomeButton();
+
+       checkoutCompletPage.ClickBackToHomeButton();
     }
     @Test(dependsOnMethods = "GoBackToHome")
     public void verifyBackToHome() {
@@ -126,6 +128,7 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "Logout")
     public void VerifyUserIsLoggedOut() {
         loginPage.verifyLoginpageTitleisDisplayed();
+        takesScreenshots.takesSnapShot(driver,"Success logout");
     }
 
 
