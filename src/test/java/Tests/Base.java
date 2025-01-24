@@ -2,6 +2,7 @@ package Tests;
 
 import Pages.*;
 import Utils.BrowserFactory;
+import Utils.ScreenShot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,4 +16,7 @@ public class Base {
     CaptureInfoPage captureInfoPage = PageFactory.initElements(driver, CaptureInfoPage.class);
     CheckoutOverviewPage checkoutOverviewPage = PageFactory.initElements(driver, CheckoutOverviewPage.class);
     CheckoutCompletedPage checkoutCompletedPage = PageFactory.initElements(driver, CheckoutCompletedPage.class);
+    ScreenShot screenShot = PageFactory.initElements(driver, ScreenShot.class);
+
+    //ScreenShot screenShot = new ScreenShot();
 }
