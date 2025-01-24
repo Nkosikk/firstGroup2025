@@ -18,7 +18,7 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
         loginPage.enterPassword(readFromExcel.password);
-        takesScreenshots.takesSnapShot(driver,"Login Page");
+
     }
 
 
@@ -35,7 +35,9 @@ public class PurchaseItemTests extends Base {
 
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
-    public void AddANItemToCart(){homePage.AddBagToCard();}
+    public void AddANItemToCart(){homePage.AddBagToCard();
+        takesScreenshots.takesSnapShot(driver,"IteminCart");
+    }
 
     @Test(dependsOnMethods = "AddANItemToCart")
     public void CheckItemAdded(){homePage.CheckRemovefromcartisdisplayed();}
@@ -52,7 +54,7 @@ public class PurchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "CheckoutItem")
     public void InformationPageTitleIsDisplayed(){infoPage.verifyInfoTitleisDisplayed();
-        takesScreenshots.takesSnapShot(driver,"Info Page");}
+       }
 
     @Test(dependsOnMethods = "InformationPageTitleIsDisplayed")
     public void enterFirstName() {
@@ -67,6 +69,7 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "enterSecondName")
     public void enterPostalCode() {
         infoPage.enterPostalCode("test");
+        takesScreenshots.takesSnapShot(driver,"Info Page");
     }
 
     @Test(dependsOnMethods = "enterPostalCode")
@@ -121,14 +124,16 @@ public class PurchaseItemTests extends Base {
     public void ClickTheBurgerMenu() {
         homePage.ClickBurgerMenu();
     }
+
     @Test(dependsOnMethods = "ClickTheBurgerMenu")
     public void Logout() {
         homePage.ClickLogout();
     }
+
     @Test(dependsOnMethods = "Logout")
     public void VerifyUserIsLoggedOut() {
         loginPage.verifyLoginpageTitleisDisplayed();
-        takesScreenshots.takesSnapShot(driver,"Success logout");
+
     }
 
 
