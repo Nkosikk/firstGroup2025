@@ -16,7 +16,8 @@ public class CheckoutOverviewPage {
     WebElement CheckoutOverviewTitle_xpath;
     @FindBy(id ="finish")
     WebElement Finish_id;
-
+    @FindBy(id ="cancel")
+    WebElement cancel_id;
 
     public CheckoutOverviewPage(WebDriver driver) {
         this.driver = driver;
@@ -28,5 +29,7 @@ public class CheckoutOverviewPage {
 
     public void ClickFinish() {
         Finish_id.click();}
+    public void clickCancel() {
+        cancel_id.click();}
 
 }

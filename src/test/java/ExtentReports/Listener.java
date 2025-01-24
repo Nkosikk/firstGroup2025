@@ -27,10 +27,12 @@ public class Listener implements ITestListener {
     }
     @Override
     public void onFinish(ITestContext result) {
+
         extent.flush();
     }
 
     public void onStart(ITestContext result) {
+
         extent = ExtentReportManager.extentSetup();
     }
 

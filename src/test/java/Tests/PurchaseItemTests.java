@@ -1,5 +1,6 @@
 package Tests;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 
 import org.openqa.selenium.TakesScreenshot;
@@ -11,12 +12,13 @@ import java.io.File;
 public class PurchaseItemTests extends Base {
 
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
+        takesScreenshots.takesSnapShot(driver,"Login Page");
     }
 
 
@@ -28,10 +30,9 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
         homePage.verifyProductTextIsDisplayedIHomePage();
+        takesScreenshots.takesSnapShot(driver,"Home Page");
     }
 
-    TakesScreenshot screenshot = (TakesScreenshot)driver;
-    File source = screenshot.getScreenshotAs(OutputType.FILE);
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
     public void AddANItemToCart(){homePage.AddBagToCard();}
@@ -43,27 +44,29 @@ public class PurchaseItemTests extends Base {
     public void GoToCart(){homePage.ClickOnCart();}
 
     @Test(dependsOnMethods = "GoToCart")
-    public void CartPageTitleIsDisplayed(){cartPage.verifyCartTitleisDisplayed();}
+    public void CartPageTitleIsDisplayed(){cartPage.verifyCartTitleisDisplayed();
+        takesScreenshots.takesSnapShot(driver,"CartPage");}
 
     @Test(dependsOnMethods = "CartPageTitleIsDisplayed")
     public void CheckoutItem(){cartPage.Checkout();}
 
     @Test(dependsOnMethods = "CheckoutItem")
-    public void InformationPageTitleIsDisplayed(){infoPage.verifyInfoTitleisDisplayed();}
+    public void InformationPageTitleIsDisplayed(){infoPage.verifyInfoTitleisDisplayed();
+        takesScreenshots.takesSnapShot(driver,"Info Page");}
 
     @Test(dependsOnMethods = "InformationPageTitleIsDisplayed")
     public void enterFirstName() {
-        infoPage.enterFirstname("Linda");
+        infoPage.enterFirstname(readFromExcel.FirstName);
     }
 
     @Test(dependsOnMethods = "enterFirstName")
     public void enterSecondName() {
-        infoPage.enterLastname("Ntanjana");
+        infoPage.enterLastname(readFromExcel.LastName);
     }
 
     @Test(dependsOnMethods = "enterSecondName")
     public void enterPostalCode() {
-        infoPage.enterPostalCode("7100");
+        infoPage.enterPostalCode("test");
     }
 
     @Test(dependsOnMethods = "enterPostalCode")
@@ -73,14 +76,35 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "ContinueOnInformationPage")
     public void CheckoutOverviewTitleIsdisplayed() {
         checkoutOverviewPage.verifyCheckoutOverviewTitleisDisplayed();
+        takesScreenshots.takesSnapShot(driver,"Checkout overview");
     }
     @Test(dependsOnMethods = "CheckoutOverviewTitleIsdisplayed")
+    public void testing() {
+        double itemTotal = 15.99;
+        double tax = 1.28;
+
+        double ItemTotalPlusTax = itemTotal + tax;
+
+        double total = 17.27;
+
+        if (ItemTotalPlusTax == total) {
+            System.out.println("Tests has passed");
+            checkoutOverviewPage.ClickFinish();
+        } else {
+            System.out.println("Tests has Failed");
+            checkoutOverviewPage.clickCancel();
+        }
+    }
+    /*@Test(dependsOnMethods = "testing")
     public void ClickTheFinishButton() {
         checkoutOverviewPage.ClickFinish();
-    }
-    @Test(dependsOnMethods = "ClickTheFinishButton")
+    }*/
+
+
+   @Test(dependsOnMethods = "testing")
     public void CheckoutCompleteTitleIsDisplayed() {
         checkoutCompletPage.verifyCheckoutCompleteTitleisDisplayed();
+       takesScreenshots.takesSnapShot(driver,"Checkout Complete");
     }
     @Test(dependsOnMethods = "CheckoutCompleteTitleIsDisplayed")
     public void GoBackToHome() {
@@ -103,6 +127,7 @@ public class PurchaseItemTests extends Base {
     public void VerifyUserIsLoggedOut() {
         loginPage.verifyLoginpageTitleisDisplayed();
     }
+
 
 
 

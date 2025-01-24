@@ -33,6 +33,5 @@ build/
 test-output/
 ### VS Code ###
 .vscode/
-
 ### Mac OS ###
 .DS_Store

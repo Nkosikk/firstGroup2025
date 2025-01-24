@@ -7,12 +7,12 @@ public class test {
 
     @Test
     public void testing() {
-        double itemTotal = 29.99;
-        double tax = 2.40;
+        double itemTotal = 15.99;
+        double tax = 1.28;
 
         double ItemTotalPlusTax = itemTotal + tax;
 
-        double total = 32.39;
+        double total = 17.27;
 
         if (ItemTotalPlusTax == total) {
             System.out.println("Tests has passed");
