@@ -68,7 +68,7 @@ public class PurchaseItemTests extends Base {
 
     @Test(dependsOnMethods = "enterSecondName")
     public void enterPostalCode() {
-        infoPage.enterPostalCode("test");
+        infoPage.enterPostalCode(readFromExcel.postalcode);
         takesScreenshots.takesSnapShot(driver,"Info Page");
     }
 

@@ -24,6 +24,7 @@ public class ReadFromExcel {
     public String password = sheet.getRow(1).getCell(1).getStringCellValue();
     public String FirstName = sheet2.getRow(1).getCell(0).getStringCellValue();
     public String LastName = sheet2.getRow(1).getCell(1).getStringCellValue();
+    public String postalcode = sheet2.getRow(1).getCell(2).getRawValue();
 
 }
 
