@@ -20,7 +20,6 @@ public class HomePage {
     }
 
 
-
     public void verifyProductTextIsDisplayedIHomePage() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(productTitle_xpath));
         productTitle_xpath.isDisplayed();
