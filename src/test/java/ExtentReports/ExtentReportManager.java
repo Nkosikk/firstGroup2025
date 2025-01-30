@@ -18,9 +18,12 @@ public class ExtentReportManager {
     {
         extentReports = new ExtentReports();
         extentSparkReporter = new ExtentSparkReporter(new File(reportDir));
+        extentReports.attachReporter(extentSparkReporter);
+
         extentSparkReporter.config().setDocumentTitle("Extent report");
         extentSparkReporter.config().setTheme(Theme.DARK);
         extentSparkReporter.config().setReportName("Sauce Demo");
+
         extentReports.setSystemInfo("OS", System.getProperty("os.name"));
         extentReports.setSystemInfo("Execution Machine", System.getProperty("user.name"));
         return extentReports;

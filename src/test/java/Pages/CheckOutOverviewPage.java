@@ -58,26 +58,40 @@ public class CheckOutOverviewPage {
     {
         String Item_Total = itemTotal_xpath.getText(); // item total displayed before adding the tax value
         String Tax_Value = tax_xpath.getText();
+        String Total_TaxValue = totalincTax_xpath.getText();
+
 
         //We use the parseAmount() method to remove any non-numeric characters (such as the $ symbol)
         double totalValue = parseAmount(Item_Total);
         double taxValue = parseAmount(Tax_Value);
+        double totaltaxvalue = parseAmount(Total_TaxValue);
 
         //Define the expected total
-        double expectedTotal = 32.39;
+        double expectedTotal = totaltaxvalue;
 
         // Calculate the actual total
         double actualTotal = totalValue + taxValue;
 
-        //Verify total
-        if (Math.abs(actualTotal - expectedTotal) < 0.01) { // Allow small tolerance for floating-point comparison
-            finish_xpath.click();
+        if (expectedTotal == actualTotal) {
             assert true;
+            finish_xpath.click();
             ThankYouText_xpath.isDisplayed();
         } else {
+            cancel_xpath.click();
             assert false;
-          cancel_xpath.click();
         }
+
+//        //Verify total
+//        if (Math.abs(actualTotal - expectedTotal) < 0.01) { // Allow small tolerance for floating-point comparison
+//            finish_xpath.click();
+//            assert true;
+//            ThankYouText_xpath.isDisplayed();
+//        } else {
+//            assert false;
+//          cancel_xpath.click();
+//        }
+
+
 
 
 
