@@ -13,31 +13,32 @@ public class ReadFromExcel {
 
     private static String testDataDir = System.getProperty("user.dir") + "/src/test/java/TestData/data.xlsx";
 
-    XSSFSheet sheet;
-    public String username;
-    public String password;
+   // public String username;
+    //public String password;
+    FileInputStream fis = new FileInputStream(testDataDir);
+    XSSFWorkbook workbook = new XSSFWorkbook(fis);
+
 
     public ReadFromExcel() throws IOException {
-
-        FileInputStream fis = new FileInputStream(testDataDir);
-        XSSFWorkbook workbook = new XSSFWorkbook(fis);
-        sheet = workbook.getSheet("login Details");
-
-        //username = sheet.getRow(1).getCell(0).getStringCellValue();
-        //password = sheet.getRow(1).getCell(1).getStringCellValue();
-
-        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-            XSSFRow row = sheet.getRow(i);
-
-            if (i == 1 && row != null) {
-                username = sheet.getRow(i).getCell(0).getStringCellValue();
-                password = sheet.getRow(i).getCell(1).getStringCellValue();
-
-            } else {
-                System.out.println("Username or password is null!");
-            }
-        }
     }
+
+    XSSFSheet sheet = workbook.getSheet("login Details");
+
+    public String username = sheet.getRow(1).getCell(0).getStringCellValue();
+    public String password = sheet.getRow(1).getCell(1).getStringCellValue();
+
+   /* for(int i = 1;i <=sheet.getLastRowNum();i++) {
+        XSSFRow row = sheet.getRow(i);
+
+        if (i == 1 && row != null) {
+            username = sheet.getRow(i).getCell(0).getStringCellValue();
+            password = sheet.getRow(i).getCell(1).getStringCellValue();
+
+        } else {
+            System.out.println("Username or password is null!");
+        }
+    }*/
+
 
     @Test
     public void test() {
