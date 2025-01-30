@@ -42,12 +42,14 @@ public class CheckoutOverviewPage {
         Double ItemPriceTaxPrice = ItemPrice + TaxPrice;
         Double TotalPrice = Double.parseDouble(totalStr);
 
-        if (ItemPriceTaxPrice == TotalPrice) {
+        if (ItemPriceTaxPrice == TotalPrice +1) {
             System.out.println("Tests has passed");
             finish_id.click();
+            assert true;
         } else {
             System.out.println("Tests has Failed");
             CancelButton_xpath.click();
+            assert false;
         }
 
 

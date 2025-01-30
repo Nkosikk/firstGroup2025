@@ -5,6 +5,8 @@ import Utils.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+
 public class Base {
 
     BrowserFactory browserFactory = new BrowserFactory();
@@ -15,4 +17,12 @@ public class Base {
     CheckoutInfoPage CheckoutInfoPage = PageFactory.initElements(driver, Pages.CheckoutInfoPage.class);
     CheckoutOverviewPage CheckoutOverviewPage = PageFactory.initElements(driver, Pages.CheckoutOverviewPage.class);
     CheckoutCompletePage CheckoutComplete = PageFactory.initElements(driver, CheckoutCompletePage.class);
+
+ //   ReadFromExcel readFromExcel;
+   // {try {readFromExcel = new ReadFromExcel();
+ //   } catch (IOException e) {
+ //       throw new RuntimeException(e);
+ //   }
+
+  //  }
 }

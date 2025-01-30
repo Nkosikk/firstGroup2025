@@ -8,27 +8,27 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class ReadFromExcel {
-    private static String TestDataDir = System.getProperty("user.dir") + "/src/test/java/TestData/DataSauceDemo";
+    private static String TestDataDir = System.getProperty("user.dir") + "/src/test/java/TestData/DataSauceDemo.xlsx";
+    XSSFSheet sheet;
+    String username;
+    String password;
 
     public ReadFromExcel() throws IOException {
 
-
-//    @Test
-        //   public void test() {
-        //      System.out.println(ReadFromExcel.TestDataDir);
-        //  }
 
         FileInputStream fis = new FileInputStream(TestDataDir);
 
         XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
-        XSSFSheet sheet = workbook.getSheet("Login Details");
-        String username = sheet.getRow(1).getCell(0).getStringCellValue();
+        sheet = workbook.getSheet("Login Details");
+        username = sheet.getRow(1).getCell(0).getStringCellValue();
+        password = sheet.getRow(1).getCell(1).getStringCellValue();
 
-        @Test
-        public void Test(){
-            System.out.println(username);
-         }
+    }
+
+    @Test
+    public void test() {
+        System.out.println(TestDataDir);
+   //     System.out.println(password);
     }
 }
-
