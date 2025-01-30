@@ -14,27 +14,22 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
-<<<<<<< HEAD
-
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-=======
 import java.io.File;
 import java.io.IOException;
->>>>>>> cdadbf81f3a9c46e0df539b016d70218f8b0c9bb
+
 
 public class Chrome {
     WebDriver driver;
 
     @Test
-<<<<<<< HEAD
+
     public void loginToSauceDemoWithBrowser() throws Exception {
-=======
-    public void loginToSauceDemoWithBrowser() throws IOException {
->>>>>>> cdadbf81f3a9c46e0df539b016d70218f8b0c9bb
+
         driver = new ChromeDriver();
 //        driver = new FirefoxDriver();
 //        driver = new EdgeDriver();
@@ -53,10 +48,6 @@ public class Chrome {
         String productText = driver.findElement(By.xpath("//span[contains(.,'Products')]")).getText();
 
         Assert.assertEquals(productText,"Products");
-
-
-
-
 
     }
 

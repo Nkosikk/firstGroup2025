@@ -48,7 +48,6 @@ public class LoginPage {
 
     public void verifyMessagedIsDIsplayedWhenLoginISIncorrect() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(loginErrorMessage_xpath));
-
         loginErrorMessage_xpath.isDisplayed();
 
     }

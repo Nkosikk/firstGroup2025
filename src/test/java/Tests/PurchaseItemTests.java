@@ -1,5 +1,7 @@
 package Tests;
 
+import Utils.TakesScreenshots;
+import Utils.ReadFromExcel;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
@@ -11,13 +13,15 @@ import static Pages.HomePage.*;
 public class PurchaseItemTests extends Base {
 
     public void enterUsernameTests() {
-        loginPage.enterUsername(readFromExcel.username);
+        loginPage.enterUsername("standard_user");
+        //loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword(readFromExcel.password);
-        takesScreenshots.takesSnapShot(driver,"Login Page");
+        loginPage.enterPassword("secret_sauce");
+        //loginPage.enterPassword(readFromExcel.password);
+        takesScreenshots.takeScreenshot(driver,"Login Page");
     }
 
 
@@ -29,13 +33,14 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
         homePage.verifyProductTextIsDisplayedIHomePage();
-        takesScreenshots.takesSnapShot(driver,"Home Page");
+        takesScreenshots.takeScreenshot(driver,"Home Page");
     }
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
     public void addItemsToCart() throws IOException {
         homePage.addProductsToCart();
-        this.getScreenShot();
+        takesScreenshots.takeScreenshot(driver,"Items Page");
+        //this.getScreenShot();
     }
 
     @Test(dependsOnMethods = "addItemsToCart")
@@ -46,43 +51,38 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "verifyProductIsAddedToCart")
     public void navigateToCart() throws IOException {
         homePage.navigateToCart();
-        this.getScreenShot();
+        takesScreenshots.takeScreenshot(driver,"Cart");
+        //this.getScreenShot();
     }
 
     @Test(dependsOnMethods = "navigateToCart")
     public void verifyCartIsDisplayedAndCheckOut() throws IOException {
         homePage.verifyCartIsDisplayedAndCheckOut();
-        this.getScreenShot();
     }
 
     @Test(dependsOnMethods = "verifyCartIsDisplayedAndCheckOut")
     public void verifyCheckOutInfoAndFillIn() throws IOException {
         checkOutPage.verifyCheckOutInfoAndFillIn();
-        this.getScreenShot();
+
     }
 
     @Test(dependsOnMethods = "verifyCheckOutInfoAndFillIn")
     public void verifyOverviewPageIsDisplayed() throws IOException {
         overviewPage.verifyOverviewPageIsDisplayed();
-        this.getScreenShot();
+        takesScreenshots.takeScreenshot(driver,"Overview Page");
     }
 
     @Test(dependsOnMethods = "verifyOverviewPageIsDisplayed")
     public void verifyTotal() throws IOException {
         overviewPage.verifyTotal();
-        this.getScreenShot();
     }
 
+   /* @Test(dependsOnMethods = "verifyTotal")
+    public void DisplayReport() throws IOException {
+        extentReportManager.
 
-    public void getScreenShot() throws IOException {
-        String screenshotpath = null;
-        try {
-            screenshotpath = takeScreenshot(driver);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        //System.out.println(screenshotpath);
-    }
+    }*/
+
 
     @AfterTest
     public void closeBrowser(){

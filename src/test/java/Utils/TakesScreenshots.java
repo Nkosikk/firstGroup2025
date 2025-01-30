@@ -7,15 +7,19 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TakesScreenshots {
+
     private static String screenshotDir = System.getProperty("user.dir") + "/Screenshots";
 
-    public void takesSnapShot(WebDriver driver, String ScreenshotName) {
+    public void takeScreenshot(WebDriver driver, String ScreenshotName) {
 
         TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
         File src = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        File destination = new File(screenshotDir, ScreenshotName + ".png");
+        String todaysDate = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        File destination = new File(screenshotDir, ScreenshotName +todaysDate+".png");
 
         try {
             FileUtils.copyFile(src, destination);
@@ -23,4 +27,20 @@ public class TakesScreenshots {
             e.printStackTrace();
         }
     }
+
+
+   /* public static String takeScreenshot (WebDriver driver) throws IOException {
+        String pageName = driver.getTitle();
+
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        String todaysDate = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        String destination = System.getProperty("user.dir") + "/Screenshots/"+pageName+todaysDate+".png";
+        File fileDestination = new File(destination);
+        FileUtils.copyFile(source, fileDestination);
+        return destination;
+    }*/
+
 }
+
+

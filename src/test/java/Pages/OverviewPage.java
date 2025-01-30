@@ -19,7 +19,6 @@ public class OverviewPage {
     WebElement subTotal;
 
     @FindBy(xpath = "//div[contains(@data-test,'tax-label')]")
-            //("//span[@data-originalprice]/span[2]")[20]
     WebElement tax;
 
     @FindBy(xpath = "//div[@data-test='total-label']")
@@ -30,8 +29,6 @@ public class OverviewPage {
 
     @FindBy(xpath = "//button[@id='cancel']")
     WebElement btn_Cancel;
-
-
 
     public void verifyOverviewPageIsDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(overview));
@@ -62,11 +59,13 @@ public class OverviewPage {
         if (gTotal == fltTotal) {
             System.out.println("Item total and tax equal to Total");
                 btn_Finish.click();
+                assert true;
         } else {
             Assert.fail("Item total and tax NOT equal to Total");
             btn_Cancel.click();
+            assert false;
         }
 
     }
-    
+
 }

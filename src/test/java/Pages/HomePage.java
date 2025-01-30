@@ -71,7 +71,7 @@ public class HomePage {
         CheckOut.click();
     }
 
-    public static String takeScreenshot (WebDriver driver) throws IOException {
+   /* public static String takeScreenshot (WebDriver driver) throws IOException {
         String pageName = driver.getTitle();
 
         TakesScreenshot ts = (TakesScreenshot) driver;
@@ -81,7 +81,7 @@ public class HomePage {
         File fileDestination = new File(destination);
         FileUtils.copyFile(source, fileDestination);
         return destination;
-    }
+    }*/
 
 
 }

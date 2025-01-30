@@ -8,7 +8,6 @@ import java.io.File;
 
 public class ExtentReportManager {
 
-    //    private static String reportDir = System.getProperty("user.dir") + "/Reports";
     private static String reportDir = System.getProperty("user.dir") + "/Reports";
 
     private static ExtentReports extentReports;

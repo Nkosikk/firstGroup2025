@@ -1,9 +1,9 @@
 package Tests;
 
+import ExtentReports.ExtentReportManager;
 import Pages.CheckOutPage;
 import Pages.HomePage;
 import Pages.LoginPage;
-//import Pages.ProductPage;
 import Pages.OverviewPage;
 import Utils.BrowserFactory;
 import Utils.ReadFromExcel;
@@ -20,22 +20,16 @@ public class Base {
     final WebDriver driver = browserFactory.startBrowser("chrome","https://www.saucedemo.com/");
     LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
     HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-<<<<<<< HEAD
     CheckOutPage checkOutPage = PageFactory.initElements(driver, CheckOutPage.class);
     OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
-=======
-
+    ExtentReportManager extentReportManager = new ExtentReportManager();
     TakesScreenshots takesScreenshots = new TakesScreenshots();
-
     ReadFromExcel readFromExcel;
-
-    {
+   /*{
         try {
             readFromExcel = new ReadFromExcel();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
->>>>>>> 659da97743076a141c0e8ac64cce1ba6edb10cbd
+    }*/
 }

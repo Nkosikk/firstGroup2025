@@ -1,5 +1,7 @@
 package Tests;
 
+import Pages.OverviewPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class test {
@@ -7,7 +9,7 @@ public class test {
 
     @Test
     public void testing() {
-        double itemTotal = 29.99;
+        /*double itemTotal = 29.99;
         double tax = 2.40;
 
         double ItemTotalPlusTax = itemTotal + tax;
@@ -20,6 +22,14 @@ public class test {
         } else {
             System.out.println("Tests has Failed");
             // click cancel button
-        }
+        }*/
+
+
+
+        //Call VerifyTotal from Overview page
+
     }
+
+
+
 }
