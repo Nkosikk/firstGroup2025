@@ -7,12 +7,13 @@ import org.testng.annotations.Test;
 public class PurchaseItemTests extends Base {
 
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
+        loginPage.enterPassword(readFromExcel.password);
+        takeScreenshots.takeSnapshot(driver,"Login Page");
     }
 
 
@@ -21,60 +22,91 @@ public class PurchaseItemTests extends Base {
         loginPage.clickLoginButton();
     }
 
+
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
         homePage.verifyProductTextIsDisplayedIHomePage();
+        takeScreenshots.takeSnapshot(driver,"Home Page");
     }
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
-    public void Add_To_Cart(){homePage.Click_Add_To_Cart_Button();}
+    public void Add_To_Cart() {
+        homePage.Click_Add_To_Cart_Button();
+    }
 
     @Test(dependsOnMethods = "Add_To_Cart")
-    public void clickShoppingCart(){homePage.Click_Shopping_Cart_Button();}
-    
+    public void clickShoppingCart() {
+        homePage.Click_Shopping_Cart_Button();
+        takeScreenshots.takeSnapshot(driver,"Cart Page");
+    }
+
     @Test(dependsOnMethods = "clickShoppingCart")
-    public void verifyCartTextIsDisplayed(){cartPage.verify_CartText_Is_Displayed_In_CartPage();}
+    public void verifyCartTextIsDisplayed() {
+        cartPage.verify_CartText_Is_Displayed_In_CartPage();
+    }
 
     @Test(dependsOnMethods = "verifyCartTextIsDisplayed")
-    public void CheckoutButton(){cartPage.checkout_Button_Clicked();}
+    public void CheckoutButton() {
+        cartPage.checkout_Button_Clicked();
+        takeScreenshots.takeSnapshot(driver,"CheckOut Info Page");
+    }
 
     @Test(dependsOnMethods = "CheckoutButton")
-    public void checkoutTextDisplayed(){checkoutPage.Checkout_Text_Is_Displayed();}
+    public void checkoutTextDisplayed() {
+        checkoutPage.Checkout_Text_Is_Displayed();
+    }
 
-    @Test(dependsOnMethods = "checkoutTextDisplayed" )
-    public void enterFirstNameTest(){checkoutPage.EnterFirstName("Tumi");}
+    @Test(dependsOnMethods = "checkoutTextDisplayed")
+    public void enterFirstNameTest() {
+        checkoutPage.EnterFirstName(readFromExcel.firstname);
+    }
 
     @Test(dependsOnMethods = "enterFirstNameTest")
-    public void enterLastNameTest(){checkoutPage.EnterLastName("Morei");}
+    public void enterLastNameTest() {
+        checkoutPage.EnterLastName(readFromExcel.lastname);
+    }
 
     @Test(dependsOnMethods = "enterLastNameTest")
-    public void enterPostCode(){checkoutPage.EnterPostalCode("9301");}
+    public void enterPostCode() {
+        checkoutPage.EnterPostalCode(readFromExcel.code);
+    }
 
     @Test(dependsOnMethods = "enterPostCode")
-    public void clickContinueTest(){checkoutPage.ContinueButtonClicked();}
+    public void clickContinueTest() {
+        checkoutPage.ContinueButtonClicked();
+        takeScreenshots.takeSnapshot(driver,"Checkout Overview Page");
+    }
 
     @Test(dependsOnMethods = "clickContinueTest")
-    public void verifyOverviewTextDisplayed(){checkOutOverviewPage.verifyOverviewtextDisplayed();}
+    public void verifyOverviewTextDisplayed() {
+        checkOutOverviewPage.verifyOverviewtextDisplayed();
+    }
 
     @Test(dependsOnMethods = "verifyOverviewTextDisplayed")
-    public void verifyItemIsAdded(){checkOutOverviewPage.ItemAddedVerification();}
+    public void verifyItemIsAdded() {
+        checkOutOverviewPage.ItemAddedVerification();
+    }
 
     @Test(dependsOnMethods = "verifyItemIsAdded")
-    public void priceTotal(){checkOutOverviewPage.TotalAmount();}
+    public void priceTotal() {
+        checkOutOverviewPage.TotalAmount();
+    }
 
     @Test(dependsOnMethods = "priceTotal")
-    public void verifyCompleteTextDisplayed(){checkoutCompletePage.verifyCompleteTextDisplayed();}
+    public void verifyCompleteTextDisplayed() {
+        checkoutCompletePage.verifyCompleteTextDisplayed();
+        takeScreenshots.takeSnapshot(driver,"Thank You Page");
+    }
 
     @Test(dependsOnMethods = "verifyCompleteTextDisplayed")
-    public void menu(){checkoutCompletePage.MenuClick();}
+    public void menu() {
+        checkoutCompletePage.MenuClick();
+    }
 
     @Test(dependsOnMethods = "menu")
-    public void loginButton(){checkoutCompletePage.logout();}
-
-
-
-
-
+    public void loginButton() {
+        checkoutCompletePage.logout();
+    }
 
 
 //    @AfterTest

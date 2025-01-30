@@ -63,7 +63,7 @@ public class CheckOutOverviewPage {
         double totalValue = parseAmount(Item_Total);
         double taxValue = parseAmount(Tax_Value);
 
-        //Define the expected total (for example, $32.39)
+        //Define the expected total
         double expectedTotal = 32.39;
 
         // Calculate the actual total
@@ -72,8 +72,10 @@ public class CheckOutOverviewPage {
         //Verify total
         if (Math.abs(actualTotal - expectedTotal) < 0.01) { // Allow small tolerance for floating-point comparison
             finish_xpath.click();
+            assert true;
             ThankYouText_xpath.isDisplayed();
         } else {
+            assert false;
           cancel_xpath.click();
         }
 
