@@ -13,15 +13,13 @@ import static Pages.HomePage.*;
 public class PurchaseItemTests extends Base {
 
     public void enterUsernameTests() {
-        loginPage.enterUsername("standard_user");
-        //loginPage.enterUsername(readFromExcel.username);
+        loginPage.enterUsername(readFromExcel.username);
     }
 
     @Test(dependsOnMethods = "enterUsernameTests")
     public void enterPasswordTests() {
-        loginPage.enterPassword("secret_sauce");
-        //loginPage.enterPassword(readFromExcel.password);
-        takesScreenshots.takeScreenshot(driver,"Login Page");
+        loginPage.enterPassword(readFromExcel.password);
+        takesScreenshots.takeScreenshot(driver, "Login Page");
     }
 
 
@@ -33,13 +31,13 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "clickLoginTests")
     public void verifyLoginSuccess() {
         homePage.verifyProductTextIsDisplayedIHomePage();
-        takesScreenshots.takeScreenshot(driver,"Home Page");
+        takesScreenshots.takeScreenshot(driver, "Home Page");
     }
 
     @Test(dependsOnMethods = "verifyLoginSuccess")
     public void addItemsToCart() throws IOException {
         homePage.addProductsToCart();
-        takesScreenshots.takeScreenshot(driver,"Items Page");
+        takesScreenshots.takeScreenshot(driver, "Items Page");
         //this.getScreenShot();
     }
 
@@ -51,7 +49,7 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "verifyProductIsAddedToCart")
     public void navigateToCart() throws IOException {
         homePage.navigateToCart();
-        takesScreenshots.takeScreenshot(driver,"Cart");
+        takesScreenshots.takeScreenshot(driver, "Cart");
         //this.getScreenShot();
     }
 
@@ -69,7 +67,7 @@ public class PurchaseItemTests extends Base {
     @Test(dependsOnMethods = "verifyCheckOutInfoAndFillIn")
     public void verifyOverviewPageIsDisplayed() throws IOException {
         overviewPage.verifyOverviewPageIsDisplayed();
-        takesScreenshots.takeScreenshot(driver,"Overview Page");
+        takesScreenshots.takeScreenshot(driver, "Overview Page");
     }
 
     @Test(dependsOnMethods = "verifyOverviewPageIsDisplayed")
@@ -85,7 +83,7 @@ public class PurchaseItemTests extends Base {
 
 
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
 }

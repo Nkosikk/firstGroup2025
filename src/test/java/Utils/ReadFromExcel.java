@@ -13,8 +13,6 @@ public class ReadFromExcel {
 
     private static String testDataDir = System.getProperty("user.dir") + "/src/test/java/TestData/data.xlsx";
 
-   // public String username;
-    //public String password;
     FileInputStream fis = new FileInputStream(testDataDir);
     XSSFWorkbook workbook = new XSSFWorkbook(fis);
 
@@ -27,7 +25,7 @@ public class ReadFromExcel {
     public String username = sheet.getRow(1).getCell(0).getStringCellValue();
     public String password = sheet.getRow(1).getCell(1).getStringCellValue();
 
-   /* for(int i = 1;i <=sheet.getLastRowNum();i++) {
+    /* for (int i = 0; i <= sheet.getLastRowNum(); i++) {
         XSSFRow row = sheet.getRow(i);
 
         if (i == 1 && row != null) {
@@ -42,7 +40,7 @@ public class ReadFromExcel {
 
     @Test
     public void test() {
-        System.out.println(password);
+        System.out.println(username);
     }
 
 }
