@@ -66,7 +66,7 @@ public class CheckOutOverviewPage {
         double taxValue = parseAmount(Tax_Value);
         double totaltaxvalue = parseAmount(Total_TaxValue);
 
-        //Define the expected total
+
         double expectedTotal = totaltaxvalue;
 
         // Calculate the actual total
