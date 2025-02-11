@@ -16,9 +16,9 @@ public class Chrome {
     @Test
     public void loginToSauceDemoWithBrowser() {
         driver = new ChromeDriver();
-       //driver = new FirefoxDriver();
-        // driver = new EdgeDriver();
-       // driver = new SafariDriver();
+       // driver = new FirefoxDriver();
+      //  driver = new EdgeDriver();
+        //driver = new SafariDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage().window().maximize();
         driver.findElement(By.id("user-name")).sendKeys("standard_user");
